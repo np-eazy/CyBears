@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { UploadStage } from "./uploadStage/uploadStage";
 import { ConverterStatus } from "./converterStatus";
 import { Output } from "./renderer/output";
@@ -13,16 +13,17 @@ const converterStyle = {
 };
 
 export const Converter = (props) => {
+  const [loadingStatus, setLoadingStatus] = new useState(false);
   return (
     <div style={converterStyle}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Panel width={500} height={300} 
+        <Panel width={500} height={500} 
         description={
           "Upload an image, and tell the AI what you want to extract from the image. "
         }>
           <UploadStage />
         </Panel>
-        <Panel height={300} description={
+        <Panel height={500} description={
           "Edit the following parameters to change the model output. "
         }>
           <ParamPanel />
@@ -31,10 +32,10 @@ export const Converter = (props) => {
             {"Convert!"}
           </Button>
         </Panel>
-        <Panel width={500} height={500} description={
+        <Panel width={300} height={300} description={
           "View the finished model! "
         }>
-          <Output />
+          <Output display={loadingStatus} />
         </Panel>
       </div>
     </div>

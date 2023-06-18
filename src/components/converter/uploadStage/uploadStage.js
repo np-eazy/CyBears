@@ -21,16 +21,18 @@ export const UploadStage = (props) => {
   };
 
   return (
-    <div style={uploadStageStyle}>
+    <div style={{ ...uploadStageStyle, position: "relative", bottom: 0 }}>
       <FileUploader
         handleChange={handleChange}
         name="file"
         types={fileTypes}
         style={{}}
       />
-      <div style={{
-        marginTop: 10,
-      }}>
+      <div
+        style={{
+          marginTop: 10,
+        }}
+      >
         <textarea
           value={text}
           onChange={handleText}

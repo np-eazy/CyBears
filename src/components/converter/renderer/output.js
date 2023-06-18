@@ -140,7 +140,7 @@ export const Output = (props) => {
     // console.log(scene);
     camera.aspect = 500 / 500;
     camera.updateProjectionMatrix();
-    renderer.setSize(500, 500);
+    renderer.setSize(450, 450);
 
     function render() {
       requestAnimationFrame(render);
@@ -160,9 +160,8 @@ export const Output = (props) => {
   }, []);
 
   return (
-    <div style={outputStyle}>
+    <div style={{...outputStyle, overflow:"hidden", padding: "10px",}}>
       <canvas ref={canvasRef} />
-      {"Output 3D model"}
     </div>
   );
 };
