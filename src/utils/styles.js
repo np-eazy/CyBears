@@ -20,9 +20,9 @@ export const bluePalette = [
 export const darkBluePalette = [
   new Color(100, 90, 200),
   new Color(120, 110, 220),
-  new Color(100, 90, 200),
-  new Color(100, 90, 200),
-  new Color(100, 90, 200),
+  new Color(140, 130, 240),
+  new Color(160, 150, 255),
+  new Color(180, 170, 255),
 ]
 
 export const headingOne = {
@@ -30,6 +30,14 @@ export const headingOne = {
   fontWeight: "bold",
   color: darkBluePalette[0].getHex(),
   textShadow: "15px 15px 20px rgba(191, 201, 219, 0.5)",
+  // textGradient: 
+};
+
+export const buttonText = {
+  fontSize: 24,
+  fontWeight: "bold",
+  color: "#ffffff",
+  textShadow: "15px 15px 20px rgba(0, 0, 0, 0.5)",
   // textGradient: 
 };
 

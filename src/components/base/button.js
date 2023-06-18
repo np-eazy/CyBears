@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { bluePalette, darkBluePalette, defaultSpacing, paragraph } from "../../utils/styles";
+import { bluePalette, darkBluePalette, defaultSpacing, buttonText } from "../../utils/styles";
 import { Color, interpolateColor } from "../../utils/Colors";
 
 export const Button = (props) => {
@@ -14,10 +14,10 @@ export const Button = (props) => {
     function refresh() {
       if (hovering) {
         setBorderValue(borderValue + (1 - decayFactor) * (1 - borderValue));
-        setDropShadowOpacity(dropShadowOpacity + (1 - decayFactor) * (0.5 - dropShadowOpacity))
+        setDropShadowOpacity(dropShadowOpacity + (1 - decayFactor) * (0.7 - dropShadowOpacity))
       } else {
         setBorderValue(borderValue * decayFactor);
-        setDropShadowOpacity(dropShadowOpacity + (1 - decayFactor) * (0.2 - dropShadowOpacity))
+        setDropShadowOpacity(dropShadowOpacity + (1 - decayFactor) * (0.4 - dropShadowOpacity))
       }
       setYOffset(yOffset * decayFactor);
 
@@ -29,6 +29,7 @@ export const Button = (props) => {
   }, [borderValue]);
 
   const clickHandler = (e) => {
+    props.clickHandler();
     setBorderValue(3);
     setYOffset(6);
   };
@@ -44,11 +45,11 @@ export const Button = (props) => {
 
   const defaultButton = {
     backgroundImage:
-      "linear-gradient(180deg, #ffffff " +
+      "linear-gradient(180deg, " + darkBluePalette[4].getHex() + " " +
       "0%, " +
       interpolateColor(
-        bluePalette[1],
-        bluePalette[1],
+        darkBluePalette[1],
+        darkBluePalette[0],
         1 - dropShadowOpacity / 2,
       ).getHex() + 
       " 100%)",
@@ -68,6 +69,10 @@ export const Button = (props) => {
     margin: "10px",
     marginTop: 10 + yOffset,
     marginBottom: 10 - yOffset,
+    paddingTop: 10,
+    paddingBottom: 10,
+
+    verticalAlign: "center",
 
     borderColor: bluePalette[3].getHex(),
   };
@@ -83,7 +88,7 @@ export const Button = (props) => {
   return (
     <div
       style={{
-        ...defaultPanel,
+        ...defaultButton,
         width: props.width,
         height: props.height,
         borderColor: borderColor.getHex(),
@@ -93,9 +98,10 @@ export const Button = (props) => {
       onMouseLeave={onMouseLeaveHandler}
     >
       <div style={defaultSpacing}>
-        <div style={paragraph}>{props.description}</div>
+        <div style={buttonText}>
+            {props.children}
+        </div>
       </div>
-      <div style={defaultSpacing}>{props.children}</div>
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import React from "react";
-import { headingOne } from "../../utils/styles";
+import { darkBluePalette, headingOne } from "../../utils/styles";
 
 export const Header = () => {
   return (
     <div>
       <div style={headingOne}>
-        {"AIDAR: Use AI to lift images into animated 3D models"}
+        {"AI-DAR: "} <>{"picture it, model it"}</>
       </div>
     </div>
   );

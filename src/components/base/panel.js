@@ -66,8 +66,8 @@ export const Panel = (props) => {
     borderRadius: "10px",
     borderWidth: "1px",
     margin: "10px",
-    marginTop: 10 + yOffset,
-    marginBottom: 10 - yOffset,
+    // marginTop: 10 + yOffset,
+    // marginBottom: 10 - yOffset,
 
     borderColor: bluePalette[3].getHex(),
   };

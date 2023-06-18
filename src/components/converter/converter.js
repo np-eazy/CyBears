@@ -5,6 +5,7 @@ import { Output } from "./renderer/output";
 import { defaultPanel, defaultSpacing } from "../../utils/styles";
 import { ParamPanel } from "./paramPanel/paramPanel";
 import { Panel } from "../base/panel";
+import { Button } from "../base/button";
 
 const converterStyle = {
   display: "inline-block",
@@ -15,7 +16,7 @@ export const Converter = (props) => {
   return (
     <div style={converterStyle}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Panel width={500} height={500} 
+        <Panel width={500} height={300} 
         description={
           "Upload an image, and tell the AI what you want to extract from the image. "
         }>
@@ -26,6 +27,9 @@ export const Converter = (props) => {
         }>
           <ParamPanel />
           <ConverterStatus />
+          <Button clickHandler={(e) => {}}>
+            {"Convert!"}
+          </Button>
         </Panel>
         <Panel width={500} height={500} description={
           "View the finished model! "
