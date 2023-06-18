@@ -7,7 +7,7 @@ import numpy as np
 # Helper function to download TXT files
 def get_txt_download_link(pc, filename):
     tmp = tempfile.NamedTemporaryFile(suffix=".txt", delete=False)
-    data = np.asarray(pc.points)
+    data = np.asarray(pc.points, pc.colors, pc.normals)
     np.savetxt(tmp, data)
     tmp.close()
     with open(tmp.name, 'rb') as f:
