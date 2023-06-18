@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { bluePalette, defaultSpacing, paragraph } from "../../utils/styles";
-import { interpolateColor } from "../../utils/Colors";
+import { Color, interpolateColor } from "../../utils/Colors";
 
 export const Panel = (props) => {
   const [hovering, setHovering] = useState(false);
   const [borderValue, setBorderValue] = useState(false);
   const [dropShadowOpacity, setDropShadowOpacity] = useState(0);
-  const decayFactor = 0.8;
+  const [yOffset, setYOffset] = useState(0);
+
+  const decayFactor = 0.85;
 
   useEffect(() => {
     function refresh() {
@@ -15,8 +17,10 @@ export const Panel = (props) => {
         setDropShadowOpacity(dropShadowOpacity + (1 - decayFactor) * (0.5 - dropShadowOpacity))
       } else {
         setBorderValue(borderValue * decayFactor);
-        setDropShadowOpacity(dropShadowOpacity * decayFactor)
+        setDropShadowOpacity(dropShadowOpacity * decayFactor);
       }
+      setYOffset(yOffset * decayFactor);
+
     }
     const timerId = setInterval(refresh, 10);
     return function cleanup() {
@@ -26,9 +30,11 @@ export const Panel = (props) => {
 
   const clickHandler = (e) => {
     setBorderValue(3);
+    setYOffset(6);
   };
 
   const onMouseEnterHandler = (e) => {
+    setBorderValue(borderValue + 0.001);
     setHovering(true);
   };
 
@@ -40,7 +46,11 @@ export const Panel = (props) => {
     backgroundImage:
       "linear-gradient(180deg, #ffffff " +
       "0%, " +
-      bluePalette[4].getHex() +
+      interpolateColor(
+        new Color(255, 255, 255),
+        bluePalette[4],
+        1 - dropShadowOpacity / 2,
+      ).getHex() + 
       " 100%)",
     boxShadow:
       "10px 10px 20px rgba(" +
@@ -56,6 +66,9 @@ export const Panel = (props) => {
     borderRadius: "10px",
     borderWidth: "1px",
     margin: "10px",
+    marginTop: 10 + yOffset,
+    marginBottom: 10 - yOffset,
+
     borderColor: bluePalette[3].getHex(),
   };
 

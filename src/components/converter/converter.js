@@ -15,14 +15,14 @@ export const Converter = (props) => {
   return (
     <div style={converterStyle}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Panel>
+        <Panel width={500} height={500}>
           <UploadStage />
         </Panel>
         <Panel>
           <ParamPanel />
           <ConverterStatus />
         </Panel>
-        <Panel>
+        <Panel width={500} height={500}>
           <Output />
         </Panel>
       </div>
