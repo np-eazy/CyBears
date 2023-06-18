@@ -84,7 +84,7 @@ export const Output = (props) => {
     const gui = new GUI();
     const scene = new Scene();
 
-    scene.background = new Color(0x44485a);
+    scene.background = new Color(0xffffff);
 
     const camera = new PerspectiveCamera(
       75,
@@ -138,9 +138,10 @@ export const Output = (props) => {
     loadModelFromGLB(scene, "model.glb");
 
     // console.log(scene);
-    camera.aspect = 500 / 500;
+    camera.aspect = 450 / 300;
+    camera.zoom = 8;
     camera.updateProjectionMatrix();
-    renderer.setSize(450, 450);
+    renderer.setSize(450, 300);
 
     function render() {
       requestAnimationFrame(render);
