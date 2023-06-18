@@ -67,16 +67,6 @@ export class Color {
     }
     return this.hex;
   }
-
-  // toString() {
-  //   return (
-  //     displayNum(this.red) +
-  //     ", " +
-  //     displayNum(this.green) +
-  //     ", " +
-  //     displayNum(this.blue)
-  //   );
-  // }
 }
 
 export const Black = () => new Color({ red: 0, green: 0, blue: 0 });

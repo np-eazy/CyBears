@@ -93,7 +93,7 @@ export const Panel = (props) => {
       onMouseLeave={onMouseLeaveHandler}
     >
       <div style={defaultSpacing}>
-        <div style={paragraph}>{props.message}</div>
+        <div style={paragraph}>{props.description}</div>
       </div>
       <div style={defaultSpacing}>{props.children}</div>
     </div>

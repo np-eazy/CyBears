@@ -15,14 +15,21 @@ export const Converter = (props) => {
   return (
     <div style={converterStyle}>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <Panel width={500} height={500}>
+        <Panel width={500} height={500} 
+        description={
+          "Upload an image, and tell the AI what you want to extract from the image. "
+        }>
           <UploadStage />
         </Panel>
-        <Panel>
+        <Panel height={300} description={
+          "Edit the following parameters to change the model output. "
+        }>
           <ParamPanel />
           <ConverterStatus />
         </Panel>
-        <Panel width={500} height={500}>
+        <Panel width={500} height={500} description={
+          "View the finished model! "
+        }>
           <Output />
         </Panel>
       </div>
