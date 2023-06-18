@@ -1,4 +1,4 @@
-import { defaultSpacing } from "../../../styles";
+import { defaultSpacing } from "../../../utils/styles";
 import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 
@@ -8,8 +8,6 @@ const uploadStageStyle = {
   ...defaultSpacing,
   height: 500,
   width: 500,
-  borderStyle: "solid",
-  borderWidth: 1,
 };
 
 export const UploadStage = (props) => {
@@ -19,7 +17,10 @@ export const UploadStage = (props) => {
   };
   return (
     <div style={uploadStageStyle}>
-        <FileUploader handleChange={handleChange} name="file" types={fileTypes} />
+        <FileUploader handleChange={handleChange} name="file" types={fileTypes} style={{
+          minWidth: 500,
+          maxWidth: 500,
+        }} />
     </div>
   );
 };

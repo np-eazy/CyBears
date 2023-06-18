@@ -2,24 +2,29 @@ import React from "react";
 import { UploadStage } from "./uploadStage/uploadStage";
 import { ConverterStatus } from "./converterStatus";
 import { Output } from "./renderer/output";
-import { defaultSpacing } from "../../styles";
+import { defaultPanel, defaultSpacing } from "../../utils/styles";
 import { ParamPanel } from "./paramPanel/paramPanel";
+import { Panel } from "../base/panel";
 
 const converterStyle = {
   display: "inline-block",
   ...defaultSpacing,
-  borderStyle: "solid",
-  borderWidth: 1,
 };
 
 export const Converter = (props) => {
   return (
     <div style={converterStyle}>
-      <div style={defaultSpacing}>
-        <UploadStage />
-        <ParamPanel />
-        <ConverterStatus />
-        <Output />
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <Panel>
+          <UploadStage />
+        </Panel>
+        <Panel>
+          <ParamPanel />
+          <ConverterStatus />
+        </Panel>
+        <Panel>
+          <Output />
+        </Panel>
       </div>
     </div>
   );
