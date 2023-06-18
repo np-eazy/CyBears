@@ -5,12 +5,8 @@ export const Header = () => {
   return (
     <div>
       <div style={headingOne}>
-        {"Welcome to the CyBears project for CalHacks 2023!"}
+        {"AIDAR: Use AI to lift images into animated 3D models"}
       </div>
-
-      <p>
-        {"Get started by uploading an image or a video."}
-      </p>
     </div>
   );
 };

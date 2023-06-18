@@ -33,7 +33,15 @@ export const Page = () => {
         minHeight: "1000px",
       }}
     >
+      <div style={{
+        minHeight: 200,
+      }}>
+      </div>
       <Header />
+      <div style={{
+        minHeight: 50,
+      }}>
+      </div>
       <Converter />
       {/* <div style={overlayStyle}></div> */}
     </div>
