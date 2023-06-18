@@ -17,33 +17,25 @@ export const bluePalette = [
   new Color(233, 242, 251)
 ]
 
-export const purplePalette = [
-  new Color(181+30, 201, 219),
-  new Color(194+24, 211, 227),
-  new Color(207+16, 221, 235),
-  new Color(220+8, 232, 243),
-  new Color(233, 242, 251)
-]
-
-
 export const darkBluePalette = [
-  new Color(255-181, 255-201, 255-219),
-  new Color(255-194, 255-211, 255-227),
-  new Color(255-207, 255-221, 255-235),
-  new Color(255-220, 255-232, 255-243),
-  new Color(255-233, 255-242, 255-251)
+  new Color(100, 90, 200),
+  new Color(120, 110, 220),
+  new Color(100, 90, 200),
+  new Color(100, 90, 200),
+  new Color(100, 90, 200),
 ]
 
 export const headingOne = {
   fontSize: 48,
   fontWeight: "bold",
   color: darkBluePalette[0].getHex(),
-  dropShadow: "3px 3px 10px " + darkBluePalette[2].getHex()
+  textShadow: "15px 15px 20px rgba(191, 201, 219, 0.5)",
+  // textGradient: 
 };
 
 export const paragraph = {
   fontSize: 12,
-  color: darkBluePalette[4],
+  color: bluePalette[0],
 };
 
 export const defaultSpacing = {
