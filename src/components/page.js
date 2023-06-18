@@ -11,15 +11,8 @@ const overlayStyle = {
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundImage: "bg-base.jpg", /* Black background with opacity */
-    zIndex: 2, /* Specify a stack order in case you're using a different order for other elements */    
-}
-
-export const Page = () => {
-  return (
-    <div
-      style={{
-        backgroundImage:
+    mixBlendMode: "color-dodge",
+    backgroundImage:
           "linear-gradient(180deg, #ffffff " +
           "0%, " +
           bluePalette[4].getHex() +
@@ -30,6 +23,14 @@ export const Page = () => {
           " 75%, " +
           bluePalette[1].getHex() +
           " 100%)",
+    zIndex: -2, /* Specify a stack order in case you're using a different order for other elements */    
+}
+
+export const Page = () => {
+  return (
+    <div
+      style={{
+        
         minHeight: "1000px",
       }}
     >
@@ -43,7 +44,9 @@ export const Page = () => {
       }}>
       </div>
       <Converter />
-      {/* <div style={overlayStyle}></div> */}
+      <div style={overlayStyle}>
+        <img style={overlayStyle} src="bg-base.png"></img>
+      </div>
     </div>
   );
 };

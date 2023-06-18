@@ -34,8 +34,9 @@ export const headingOne = {
 };
 
 export const paragraph = {
-  fontSize: 12,
-  color: bluePalette[0],
+  margin: 5,
+  fontSize: 16,
+  color: darkBluePalette[0].getHex(),
 };
 
 export const defaultSpacing = {

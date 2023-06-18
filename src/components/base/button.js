@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { bluePalette, darkBluePalette, defaultSpacing, paragraph } from "../../utils/styles";
 import { Color, interpolateColor } from "../../utils/Colors";
 
-export const Panel = (props) => {
+export const Button = (props) => {
   const [hovering, setHovering] = useState(false);
   const [borderValue, setBorderValue] = useState(false);
   const [dropShadowOpacity, setDropShadowOpacity] = useState(0.2);
@@ -42,13 +42,13 @@ export const Panel = (props) => {
     setHovering(false);
   };
 
-  const defaultPanel = {
+  const defaultButton = {
     backgroundImage:
       "linear-gradient(180deg, #ffffff " +
       "0%, " +
       interpolateColor(
-        new Color(255, 255, 255),
-        bluePalette[4],
+        bluePalette[1],
+        bluePalette[1],
         1 - dropShadowOpacity / 2,
       ).getHex() + 
       " 100%)",
