@@ -27,12 +27,12 @@ export const Converter = (props) => {
           "Edit the following parameters to change the model output. "
         }>
           <ParamPanel />
-          <ConverterStatus />
+          {/* <ConverterStatus /> */}
           <Button clickHandler={(e) => {}}>
             {"Convert!"}
           </Button>
         </Panel>
-        <Panel width={300} height={300} description={
+        <Panel width={540} height={500} description={
           "View the finished model! "
         }>
           <Output display={loadingStatus} />
