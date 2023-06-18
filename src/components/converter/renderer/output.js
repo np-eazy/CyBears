@@ -22,6 +22,7 @@ import {
 
 import { GUI } from "three/addons/libs/lil-gui.module.min.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { loadModelFromGLB } from "./meshProvider";
 
 class CustomSinCurve extends Curve {
   constructor(scale = 1) {
@@ -133,15 +134,19 @@ export const Output = (props) => {
     group.add(new LineSegments(geometry, lineMaterial));
     group.add(new Mesh(geometry, meshMaterial));
     getGeometry(group);
-    scene.add(group);
+
+    loadModelFromGLB(scene, "model.glb");
+
+    // console.log(scene);
     camera.aspect = 500 / 500;
     camera.updateProjectionMatrix();
     renderer.setSize(500, 500);
 
     function render() {
       requestAnimationFrame(render);
-      group.rotation.x += 0.005;
-      group.rotation.y += 0.005;
+      scene.rotation.x = Math.PI / 2;
+      scene.rotation.y = Math.PI / 2;
+
       renderer.render(scene, camera);
     }
 
